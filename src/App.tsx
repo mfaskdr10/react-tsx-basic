@@ -1,15 +1,30 @@
-import Footer from "./components/Footer";
+import { Routes, Route } from "react-router";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ErrorPage from "./pages/ErrorPage";
 import Header from "./components/Header";
-import ProfileCard from "./components/ProfileCard";
+import Footer from "./components/Footer";
+import DetailProductPage from "./pages/DetailProductPage";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
-      <ProfileCard name={"Muhammad Fadhil"} year={2007} job={"Programmer"} />
-      <ProfileCard name={"Alvan Syah"} year={2008} />
+      <Routes>
+        {/* Static Routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+
+        {/* Dynamic Routes */}
+        <Route path="/products/:slug" element={<DetailProductPage />} />
+
+        {/* Error Page */}
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

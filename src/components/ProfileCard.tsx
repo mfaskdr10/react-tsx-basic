@@ -1,11 +1,11 @@
 type ProfileCardProps = {
-  name: string;
+  name?: string;
   year: number;
   job?: string;
 };
 
 const ProfileCard = (props: ProfileCardProps) => {
-  const { name, year, job } = props;
+  const { name = "Anonymous", year, job } = props;
 
   return (
     <>
